@@ -1,3 +1,6 @@
+// Osama Ibrahim Mohammed Siran 446100768 اسامة ابراهيم محمد سعران
+// https://github.com/OsamaSiran/LibrarySimulator
+
 public class Member {
     private int id;
     private String name;
@@ -7,10 +10,10 @@ public class Member {
     private int numReturns;
     private double sessionFees;
 
-    static double TotalRevenue;
-    static int TotalViewBorrowed;
-    static int TotalBorrows;
-    static int TotalReturns;
+    public static double TotalRevenue;
+    public static int TotalViewBorrowed;
+    public static int TotalBorrows;
+    public static int TotalReturns;
 
     public Member(int id, String name, int borrowedCount) {
         this.id = id;
@@ -42,29 +45,37 @@ public class Member {
         Member.TotalViewBorrowed++;
         System.out.println("You have " + this.borrowedCount + " books.");
     }
-    public void borrowOne(){
+    public boolean borrowOne(){
         if (!canBorrow()) {
             System.out.println("You can not borrow more the 5 books.");
+            return false; 
         }
-        this.borrowedCount++;
-        this.numBorrows++;
-        this.sessionFees += 0.50;
-        Member.TotalBorrows++;
-        Member.TotalRevenue += 0.50;
-        System.out.printf("You borrowed a book. The fee will be %.2f thank you.", 0.50);
+        else {
+            this.borrowedCount++;
+            this.numBorrows++;
+            this.sessionFees += 0.50;
+            Member.TotalBorrows++;
+            Member.TotalRevenue += 0.50;
+            System.out.printf("You borrowed a book. The fee will be %.2f thank you. \n", 0.50);
+            return true; 
+        }
     }
-    public void returnOne(){ 
+    public boolean returnOne(){ 
         if (!canReturn()) {
             System.out.println("You do not have any books to return.");
+            return false; 
         }
-        this.borrowedCount--;
-        this.numReturns++;
-        Member.TotalReturns++;
-        
-        System.out.println("You returned a book.");
+        else {
+            this.borrowedCount--;
+            this.numReturns++;
+            Member.TotalReturns++;
+            
+            System.out.println("You returned a book.");
+            return true;
+        }
     }
     public void displayStatistics(){
-        System.out.println("Statistics for" + this.name);
+        System.out.println("Statistics for " + this.name);
         System.out.println("You borrowed: " + this.numBorrows);
         System.out.println("You returned: " + this.numReturns);
         System.out.println("You View borrowed count: " + this.numViewBorrowed);
