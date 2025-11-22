@@ -2,31 +2,18 @@
 
 import java.util.Scanner;
 public class LibrarySimulator {
-    // Properties of every object.
-    int idNumber;
-    String userName;
-    int borrowedBooks;
+    // // Properties of every object. TO REMOVE 
+    // int idNumber;
+    // String userName;
+    // int borrowedBooks;
 
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        // Creating 3 accounts.
-        LibrarySimulator user1 = new LibrarySimulator();
+        // Creating 3 members.
         
-        user1.idNumber = 101;
-        user1.userName = "Osama";
-        user1.borrowedBooks = 0;
-
-        LibrarySimulator user2 = new LibrarySimulator(); 
-        
-        user2.idNumber = 102;
-        user2.userName = "Mohammed";
-        user2.borrowedBooks = 0;
-
-        LibrarySimulator user3 = new LibrarySimulator();
-        
-        user3.idNumber = 103;
-        user3.userName = "Abdullah";
-        user3.borrowedBooks = 0;
+        Member user1 = new Member(101, "Osama", 0);
+        Member user2 = new Member(102, "Mohammed", 0);
+        Member user3 = new Member(103, "Abdullah", 0);
 
         System.out.println("Welcome, this is King Salman Central library system.");
 
